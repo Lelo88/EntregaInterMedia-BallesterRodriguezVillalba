@@ -69,12 +69,43 @@ def form_socios(request):
             lector = Socio(nombre=info_lectores['nombre'], apellido=info_lectores['apellido'], fecha_nac=info_lectores['fecha_nac'])
             lector.save()
             
-            return redirect('ListadoSocios')
+            return redirect('ListadoSocios')    
     
     else:
-        lectores = Socios()
+        socios = Socios()
         
-    return render(request, 'formularioLectores.html', {'socios': socios})
+    return render(request, 'formularioSocios.html', {'socios': socios})
 
 def form_inicial(request):
+    
+    return render(request, 'formularioInicial.html')
+
+def busqueda_inicial(request):
+    
+    return render(request, 'busquedaInicial.html')
+
+def busqueda_libros(request):
+    
+    return render(request, 'busquedaLibros.html')
+
+def buscar_libros(request):
+    
+    libro_buscado = request.POST.get('libro')
+    
+    autores = Libro.objects.get(titulo = libro_buscado)
+    
+    return render(request, 'busquedaLibros.html', {'autores': autores, 'titulo': libro_buscado})
+
+def busqueda_sectores(request):
+    
+    return render(request, 'busquedaSectores.html')
+
+def buscar_sectores(request):
+    pass
+
+def busqueda_socios(request):
+    
+    return render(request, 'busquedaSocios.html')
+
+def buscar_socios(request):
     pass

@@ -1,0 +1,29 @@
+{% extends 'padre.html' %}
+
+
+{% block Biblioteca %}
+<section class="page-section bg-primary">
+    <div class="container px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-lg-8 text-center">
+                <h2>Busqueda de libros</h2>
+                
+                {% if autores %}
+                    
+                    
+                <p>Estamos buscando el libro {{titulo}}</p>
+                <ul>
+                    
+                    {% for autor in autores %}
+                        <li>{{autor.autor}} - {{autor.titulo}}</li>
+                    {% endfor %}
+                        
+                </ul>
+                {% else %}
+                <p>{{respuesta}}</p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock Biblioteca %}
