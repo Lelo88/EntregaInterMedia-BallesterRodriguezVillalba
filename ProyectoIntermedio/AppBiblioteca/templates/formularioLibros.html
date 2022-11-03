@@ -8,11 +8,12 @@
             <div class="col-lg-8 text-center">
                 <h2>Formulario de alta de libros</h2>                  
                 <hr class="divider divider-light" />
-                <form action="{% url 'FormularioLibros' %}" method="POST">
+                
+                <form action="{% url 'FormularioLibros' %}" method="POST" class="">
                     {% csrf_token %}
-
+                    <div class="div-center">
                     {{libros.as_p}}
-
+                    </div>
                     <input type="submit" value="Enviar">
                 </form> 
                     

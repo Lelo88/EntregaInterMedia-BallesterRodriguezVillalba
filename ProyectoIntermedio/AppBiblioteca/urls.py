@@ -1,9 +1,25 @@
 from django.urls import path
 
-from .views import buscar_socios, busqueda_inicial, busqueda_libros, busqueda_sectores, busqueda_socios, form_inicial, form_libros, form_sectores, form_socios, inicio, libros, socios, sectores
+from .views import (buscar_socios,
+                    buscar_libros,
+                    buscar_sectores, 
+                    busqueda_inicial, 
+                    busqueda_libros, 
+                    busqueda_sectores, 
+                    busqueda_socios, 
+                    form_inicial, 
+                    form_libros, 
+                    form_sectores, 
+                    form_socios, 
+                    inicio, 
+                    libros, 
+                    socios, 
+                    sectores,
+                    registros)
 
 urlpatterns = [
     path('', inicio, name='Inicio'),
+    path('registros/',registros, name='Registros'),
     path('listado-libros/', libros, name='ListadoLibros'),
     path('listado-socios/', socios, name='ListadoSocios'),
     path('listado-sectores/', sectores, name='ListadoSectores'),
@@ -16,4 +32,6 @@ urlpatterns = [
     path('busqueda-sectores/', busqueda_sectores, name='BusquedaSectores'),
     path('busqueda-socios/', busqueda_socios, name='BusquedaSocios'),
     path('buscar-socios/', buscar_socios, name='BuscarSocios'),
+    path('buscar-libros/', buscar_libros, name='BuscarLibros'),
+    path('buscar-sectores/', buscar_sectores, name='BuscarSectores'),
 ]

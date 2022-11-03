@@ -7,8 +7,12 @@
         <div class="row gx-4 gx-lg-5 justify-content-center">
             <div class="col-lg-8 text-center">
                 <h2>Busqueda de Sectores</h2>
-                    <form action="{% url 'BusquedaSectores' %}" method="GET" class="row row-cols-auto">
-                        
+                    <form action="{% url 'BuscarSectores' %}" method="GET" class="form-control form-color-mio">
+                        <p>Ingrese el código del sector a buscar</p>
+                        <input type="number" name="codigo_sector">
+
+                        <input type="submit" value="Buscar" class="boton-busq">
+
                     </form>
             </div>
         </div>

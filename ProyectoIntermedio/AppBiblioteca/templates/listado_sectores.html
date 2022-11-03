@@ -11,7 +11,11 @@
                 {% for sector in lista_sectores %}
                     <li>{{sector.nombre}} - {{sector.color}}</li>
                 {% endfor %}
-                    
+                <div class="div-boton">
+                    <a href="{% url 'Inicio' %}" class="boton-link">Inicio</a>
+                    <a href="{% url 'FormularioInicial' %}" class="boton-link">Formularios</a>
+                    <a href="{% url 'BusquedaInicial' %}" class="boton-link">Búsquedas</a>
+                </div>     
             </div>
         </div>
     </div>

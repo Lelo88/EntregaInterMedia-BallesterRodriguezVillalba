@@ -6,6 +6,9 @@ from .forms import Libros, Socios, Sectores
 def inicio(request):
     return render(request,'inicio.html')
 
+def registros(request):
+    return render(request, 'registros.html')
+
 def libros(request):
     
     libro = Libro.objects.all()
@@ -89,14 +92,36 @@ def busqueda_libros(request):
     return render(request, 'busquedaLibros.html')
 
 def buscar_libros(request):
-    pass
+    
+    codigo_libro = request.GET['codigo_libro']
+    
+    if Libro.objects.filter(codigo_libro = codigo_libro).exists():
+        
+        libro = Libro.objects.get(codigo_libro = codigo_libro)
+        return render(request, 'resultBusLibros.html', {'libro':libro, 'codigo_libro': codigo_libro})
+    
+    else: 
+        respuesta = 'No se encuentra ningun libro con ese nùmero de código'
+        return render(request, 'resultBusqLector.html', {'respuesta': respuesta})
+
 
 def busqueda_sectores(request):
     
     return render(request, 'busquedaSectores.html')
 
 def buscar_sectores(request):
-    pass
+    
+    codigo_sector = request.GET['codigo_sector']
+    
+    if Sector.objects.filter(codigo_sector=codigo_sector).exists():
+        
+        sector = Sector.objects.get(codigo_sector=codigo_sector)
+        
+        return render(request, 'resultBusqSectores.html', {'sector': sector, 'codigo_sector': codigo_sector})
+    
+    else:
+        respuesta = 'No se encuentra ningun sector con ese número de código'
+        return render(request, 'resultBusqSectores.html', {'respuesta': respuesta})
 
 def busqueda_socios(request):
     
@@ -107,9 +132,11 @@ def buscar_socios(request):
     if request.GET['codigo_socio']:
         
         codigo_socio = request.GET['codigo_socio']
-        socio = Socio.objects.get(codigo_socio=codigo_socio)
-    
-        return render(request, 'resultBusqLector.html', {'socio': socio,'codigo_socio': codigo_socio})
-    else:
-        respuesta = 'No enviaste datos'
-        return render(request, 'resultBusqLector.html', {'respuesta': respuesta})
+        
+        if Socio.objects.filter(codigo_socio=codigo_socio).exists():
+            
+            socio = Socio.objects.get(codigo_socio=codigo_socio)
+            return render(request, 'resultBusqLector.html', {'socio': socio,'codigo_socio': codigo_socio})
+        else:
+            respuesta = 'No se encuentra ningun lector con ese nùmero de socio'
+            return render(request, 'resultBusqLector.html', {'respuesta': respuesta})

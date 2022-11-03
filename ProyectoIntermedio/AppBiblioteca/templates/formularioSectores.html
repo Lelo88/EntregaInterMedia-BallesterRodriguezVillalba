@@ -10,9 +10,9 @@
                 <hr class="divider divider-light" />
                 <form action="{% url 'FormularioSectores' %}" method="POST">
                     {% csrf_token %}
-
+                    <div class="div-center">
                     {{sectores.as_p}}
-
+                    </div>
                     <input type="submit" value="Enviar">
                 </form> 
                     

@@ -10,15 +10,18 @@
             <div class="col-lg-8 text-center">
                 <h2 class="text-white mt-0">Resultado de lectores</h2>
                 <hr class="divider divider-light" />
-                {% if socio %}
+                {% if codigo_socio %}
                     <p>Datos del socio {{codigo_socio}}</p>                
                     <h4> {{socio.nombre}} {{socio.apellido}} - {{codigo_socio}}</h4>
                     
                 {% else %}
-                    <p>No se encuentra ningun lector con ese nùmero de socio</p>
                     <p>{{respuesta}}</p>
                 {% endif %}
-                    
+                <div class="div-boton">
+                    <a href="{% url 'Inicio' %}" class="boton-link">Inicio</a>
+                    <a href="{% url 'FormularioInicial' %}" class="boton-link">Formularios</a>
+                    <a href="{% url 'BusquedaInicial' %}" class="boton-link">Búsquedas</a>
+                </div>    
                     
             </div>
         </div>

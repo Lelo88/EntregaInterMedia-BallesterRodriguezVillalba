@@ -11476,9 +11476,9 @@ header.masthead h1, header.masthead .h1 {
 .boton-busq{
   padding: 4px 25px;
   margin:auto;
-  background: #e1d3a1;
+  background-color: rgba(var(--bs-primary-rgb), var(--bs-bg-opacity)) !important;
   border: 1px solid black;
-  color: #fff;
+  color: #000;
   border-radius: 4px;
   text-decoration:none;
 }
@@ -11486,12 +11486,12 @@ header.masthead h1, header.masthead .h1 {
 .boton-link{
   padding: 10px ;
   margin: 20px 20px;
-  background: #000;
+  background: #000000;
   border: 1px solid black;
   color: #fff;
   border-radius: 4px;
   text-decoration:none;
-  width: 100px;
+  width: 150px;
   text-align: center;
 }
 
@@ -11505,4 +11505,48 @@ header.masthead h1, header.masthead .h1 {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.logo-inicio {
+  background-image: url("../assets/img/760fc9fd8cf9be8e309624e34c25ba92648a8537.jpg");
+  width: 559px; /* Definir de acuerdo al ancho de la imagen */
+  height: 164px; /* Definir de acuerdo al alto de la imagen */
+  display: flex;
+  justify-content: center;
+}
+
+.div-center{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+}
+
+.miform {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.miform input {
+  width: 90%;
+  height: 30px;
+  margin: 0.5rem;
+}
+
+.miform button {
+  padding: 0.5em 1em;
+  border: none;
+  background: rgb(100, 200, 255);
+  cursor: pointer;
+}
+
+.form-color-mio{
+  background-color: black;
+  color: white;
+  border: 1px solid black;
 }
