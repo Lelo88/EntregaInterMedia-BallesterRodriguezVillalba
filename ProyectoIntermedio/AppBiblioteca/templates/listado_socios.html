@@ -1,0 +1,19 @@
+{% extends 'padre.html' %}
+
+
+{% block Biblioteca %}
+<section class="page-section bg-primary" id="Inicio">
+    <div class="container px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-lg-8 text-center">
+                <h2>Listado de socios ingresados</h2>                  
+                
+                {% for socio in lista_socios %}
+                    <li>{{socio.nombre}}  {{socio.apellido}}</li>
+                {% endfor %}
+                    
+            </div>
+        </div>
+    </div>
+</section>  
+{% endblock Biblioteca %}

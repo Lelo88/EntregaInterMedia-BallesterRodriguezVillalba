@@ -6,22 +6,15 @@
     <div class="container px-4 px-lg-5">
         <div class="row gx-4 gx-lg-5 justify-content-center">
             <div class="col-lg-8 text-center">
-                <h2>Busqueda de libros</h2>
-                
-                {% if autores %}
+                <h2 class="text-white mt-0">Búsqueda de lectores</h2>
+                <hr class="divider divider-light" />
+                <form action="{% url 'BuscarLectores' %}" method="GET" class="form-control">
                     
-                    
-                <p>Estamos buscando el libro {{titulo}}</p>
-                <ul>
-                    
-                    {% for autor in autores %}
-                        <li>{{autor.autor}} - {{autor.titulo}}</li>
-                    {% endfor %}
-                        
-                </ul>
-                {% else %}
-                <p>{{respuesta}}</p>
-                {% endif %}
+                    <p>Ingrese el número de socio a buscar</p>
+                    <input type="number" name="num_socio">
+
+                    <input type="submit" value="Buscar" class="boton-busq">
+                </form>  
             </div>
         </div>
     </div>

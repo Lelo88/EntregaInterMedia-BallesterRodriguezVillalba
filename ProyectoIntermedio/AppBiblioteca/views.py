@@ -31,7 +31,7 @@ def form_libros(request):
         
         if libros.is_valid():
             info_libros = libros.cleaned_data
-            libro = Libro(titulo=info_libros['titulo'], sinopsis=info_libros['sinopsis'], autor=info_libros['autor'])
+            libro = Libro(titulo=info_libros['titulo'], sinopsis=info_libros['sinopsis'], autor=info_libros['autor'], codigo_libro=info_libros['codigo_libro'])
             libro.save()
             
             return redirect('ListadoLibros')
@@ -49,7 +49,7 @@ def form_sectores(request):
         
         if sectores.is_valid():
             info_sectores = sectores.cleaned_data
-            sector = Sector(color=info_sectores['color'], nombre=info_sectores['nombre'], cupo=info_sectores['cupo'])
+            sector = Sector(color=info_sectores['color'], nombre=info_sectores['nombre'], cupo=info_sectores['cupo'], codigo_sector=info_sectores['codigo_sector'])
             sector. save()
             
             return redirect('ListadoSectores')
@@ -66,7 +66,7 @@ def form_socios(request):
         
         if socios.is_valid():
             info_lectores = socios.cleaned_data
-            lector = Socio(nombre=info_lectores['nombre'], apellido=info_lectores['apellido'], fecha_nac=info_lectores['fecha_nac'])
+            lector = Socio(nombre=info_lectores['nombre'], apellido=info_lectores['apellido'], fecha_nac=info_lectores['fecha_nac'], codigo_socio=info_lectores['codigo_socio'])
             lector.save()
             
             return redirect('ListadoSocios')    
@@ -89,12 +89,7 @@ def busqueda_libros(request):
     return render(request, 'busquedaLibros.html')
 
 def buscar_libros(request):
-    
-    libro_buscado = request.POST.get('libro')
-    
-    autores = Libro.objects.get(titulo = libro_buscado)
-    
-    return render(request, 'busquedaLibros.html', {'autores': autores, 'titulo': libro_buscado})
+    pass
 
 def busqueda_sectores(request):
     
@@ -108,4 +103,13 @@ def busqueda_socios(request):
     return render(request, 'busquedaSocios.html')
 
 def buscar_socios(request):
-    pass
+    
+    if request.GET['codigo_socio']:
+        
+        codigo_socio = request.GET['codigo_socio']
+        socio = Socio.objects.get(codigo_socio=codigo_socio)
+    
+        return render(request, 'resultBusqLector.html', {'socio': socio,'codigo_socio': codigo_socio})
+    else:
+        respuesta = 'No enviaste datos'
+        return render(request, 'resultBusqLector.html', {'respuesta': respuesta})
